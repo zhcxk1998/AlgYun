@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
-# from __future__ import unicode_literals
-
+from DjangoUeditor.models import UEditorField
 from django.db import models
-# from django.utils.encoding import python_2_unicode_compatible
 
 
-# @python_2_unicode_compatible
+
+
 class Column(models.Model):
     name = models.CharField('栏目名称', max_length=256)
     slug = models.CharField('栏目网址', max_length=256, db_index=True)
@@ -28,7 +27,10 @@ class Article(models.Model):
     slug = models.CharField('网址', max_length=256, db_index=True)
 
     author = models.ForeignKey('auth.User', blank=True, null=True, verbose_name='作者', on_delete=models.CASCADE,)
-    content = models.TextField('内容', default='', blank=True)
+    # 仅修改 content 字段
+    content = UEditorField('内容', height=300, width=1000,
+                           default=u'', blank=True, imagePath="uploads/images/",
+                           toolbars='besttome', filePath='uploads/files/')
 
     pub_date = models.DateTimeField('发表时间', auto_now_add=True, editable=True)
     update_time = models.DateTimeField('更新时间', auto_now=True, null=True)
