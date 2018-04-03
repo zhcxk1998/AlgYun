@@ -22,7 +22,7 @@ from django.conf.urls import include
 urlpatterns = [
     path('', admin.site.urls),
     path('ueditor/', include(DjangoUeditor_urls))
-    
+
 ]
 
 if settings.DEBUG:

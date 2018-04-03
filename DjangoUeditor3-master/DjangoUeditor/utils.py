@@ -43,11 +43,11 @@ class FileSize():
 
     # 返回字节为单位的值
     @property
-    def size(self):
+    def sizeByte(self):
         return self._size
 
-    @size.setter
-    def size(self, newsize):
+    @sizeByte.setter
+    def sizeByte(self, newsize):
         try:
             self._size = long(newsize)
         except:
