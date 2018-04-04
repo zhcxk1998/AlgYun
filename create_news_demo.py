@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# @Date    : 2015-07-28 20:38:38
-# @Author  : Weizhong Tu (mail@tuweizhong.com)
-# @Link    : http://www.tuweizhong.com
 
 '''
 create some records for demo database
@@ -14,7 +9,7 @@ from news.models import Column, Article
 
 def main():
     columns_urls = [
-      ('体育新闻', 'sports'),
+      ('社交新闻', 'sports'),
       ('社会新闻', 'society'),
       ('科技新闻', 'tech'),
     ]
