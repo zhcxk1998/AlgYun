@@ -18,10 +18,14 @@ from django.urls import path
 from DjangoUeditor import urls as DjangoUeditor_urls
 from django.conf import settings
 from django.conf.urls import include
+from news.views import *
 
 urlpatterns = [
-    path('', admin.site.urls),
-    path('ueditor/', include(DjangoUeditor_urls))
+    path('admin', admin.site.urls),
+    path('ueditor/', include(DjangoUeditor_urls)),
+    path('', index, name="index"),
+    path('column/<str:column_slug>', column_detail, name='column'),
+    path('article/<str:article_slug>', article_detail, name='article'),
 
 ]
 

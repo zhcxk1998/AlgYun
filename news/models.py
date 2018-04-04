@@ -19,7 +19,6 @@ class Column(models.Model):
         ordering = ['name']  # 排序
 
 
-# @python_2_unicode_compatible
 class Article(models.Model):
     column = models.ManyToManyField(Column, verbose_name='归属栏目')
 
