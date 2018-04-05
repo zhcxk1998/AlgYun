@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from DjangoUeditor.models import UEditorField
 from django.db import models
-
+from django.urls import reverse
 
 
 
@@ -9,6 +9,9 @@ class Column(models.Model):
     name = models.CharField('栏目名称', max_length=256)
     slug = models.CharField('栏目网址', max_length=256, db_index=True)
     intro = models.TextField('栏目简介', default='')
+
+    def get_absolute_url(self):
+        return reverse('column', args=(self.slug, ))
 
     def __str__(self):
         return self.name
@@ -34,6 +37,10 @@ class Article(models.Model):
     pub_date = models.DateTimeField('发表时间', auto_now_add=True, editable=True)
     update_time = models.DateTimeField('更新时间', auto_now=True, null=True)
     published = models.BooleanField('正式发布', default=True)
+
+    def get_absolute_url(self):
+        # args参数是元组，末尾一定要有,号
+        return reverse('article', args=(self.slug, ))
 
     def __str__(self):
         return self.title

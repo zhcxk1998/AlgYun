@@ -24,8 +24,8 @@ urlpatterns = [
     path('admin', admin.site.urls),
     path('ueditor/', include(DjangoUeditor_urls)),
     path('', index, name="index"),
-    path('column/<str:column_slug>', column_detail, name='column'),
-    path('article/<str:article_slug>', article_detail, name='article'),
+    path('column/<column_slug>', column_detail, name='column'),
+    path('article/<article_slug>', article_detail, name='article'),
 
 ]
 
