@@ -18,7 +18,7 @@ from django.urls import path
 from DjangoUeditor import urls as DjangoUeditor_urls
 from django.conf import settings
 from django.conf.urls import include
-from news.views import *
+from news.views import column_detail, article_detail, index
 
 urlpatterns = [
     path('admin', admin.site.urls),
