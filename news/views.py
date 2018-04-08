@@ -28,3 +28,5 @@ def article_detail(request, pk, article_slug):
     if article_slug != article.slug:
         return redirect(article, permanent=True)
     return render(request, 'news/article.html', {'article': article})
+
+# def bb(request):
