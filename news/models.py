@@ -7,7 +7,7 @@ from django.urls import reverse
 
 class Column(models.Model):
     name = models.CharField('栏目名称', max_length=256)
-    slug = models.CharField('栏目网址', max_length=256, db_index=True)
+    slug = models.CharField('栏目网址', max_length=256, unique=True)
     intro = models.TextField('栏目简介', default='')
 
     def get_absolute_url(self):
@@ -40,7 +40,7 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         # args参数是元组，末尾一定要有,号
-        return reverse('article', args=(self.slug, ))
+        return reverse('article', args=(self.pk, self.slug))
 
     def __str__(self):
         return self.title

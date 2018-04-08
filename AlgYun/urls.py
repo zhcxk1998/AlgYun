@@ -25,7 +25,8 @@ urlpatterns = [
     path('ueditor/', include(DjangoUeditor_urls)),
     path('', index, name="index"),
     path('column/<column_slug>', column_detail, name='column'),
-    path('article/<article_slug>', article_detail, name='article'),
+    # path('article/<article_slug>', article_detail, name='article'),
+    path('article/<str:pk>/<article_slug>', article_detail, name='article')
 
 ]
 
