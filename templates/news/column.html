@@ -6,10 +6,9 @@
  
 
 {% block content %}
-<p>分类名称：{{ column.name }}</p>
-分类简介：{{ column.intro }}
-
-帖子列表：
+<p>栏目名称：{{ column.name }}</p>
+栏目简介：{{ column.intro }}
+栏目文章列表：
 <ul>
     {% for article in column.article_set.all %}
         <li>
