@@ -6,9 +6,9 @@ from django.urls import reverse
 
 
 class Column(models.Model):
-    name = models.CharField('栏目名称', max_length=256)
-    slug = models.CharField('栏目网址', max_length=256, unique=True)
-    intro = models.TextField('栏目简介', default='')
+    name = models.CharField('分类名称', max_length=256)
+    slug = models.CharField('分类网址', max_length=256, unique=True)
+    intro = models.TextField('分类简介', default='')
 
     def get_absolute_url(self):
         return reverse('column', args=(self.slug, ))
@@ -17,13 +17,13 @@ class Column(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = '栏目'
-        verbose_name_plural = '栏目'
+        verbose_name = '分类'
+        verbose_name_plural = '分类'
         ordering = ['name']  # 排序
 
 
 class Article(models.Model):
-    column = models.ManyToManyField(Column, verbose_name='归属栏目')
+    column = models.ManyToManyField(Column, verbose_name='归属分类')
 
     title = models.CharField('标题', max_length=256)
     slug = models.CharField('网址', max_length=256, unique=True)
@@ -46,5 +46,5 @@ class Article(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = '教程'
-        verbose_name_plural = '教程'
+        verbose_name = '帖子'
+        verbose_name_plural = '帖子'
